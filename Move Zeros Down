@@ -1,0 +1,20 @@
+/*
+* Author: Yang Pei
+* Problem: Move Zeros Down
+* 
+* Note:
+* Given a binary tree, move the zeros to the bottom, so that if a node's value is 0,2 U; R- @1 r/ K9 z1 V
+* any of its descendant are 0s.
+* For example:
+*      1
+*     / \
+*    0   0
+*   / \   \
+*  2   0   3
+* could be changed to
+*      1
+*     / \
+*    2   3
+*   / \   \
+*  0   0   0   
+
