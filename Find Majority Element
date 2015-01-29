@@ -1,0 +1,64 @@
+/*Majority Element: A majority element in an array A[] of size n is an element that appears more than n/2 times (and hence there is at most one such element).
+
+Write a function which takes an array and emits the majority element (if it exists), otherwise prints NONE as follows:
+
+       I/P : 3 3 4 2 4 4 2 4 4
+       O/P : 4 
+
+       I/P : 3 3 4 2 4 4 2 4
+       O/P : NONE
+       
+Solution :1.basic: sorting and return A[mid]. O(nlogn), O(1)
+          2.Moore's voting algrithm. O(n), O(1)
+*/
+import java.util.Arrays;
+
+
+public class MajorityElement {
+	public static int find(int[] A){
+		Arrays.sort(A);
+		int len = A.length;
+		int count = 1;
+		for(int i = 1; i < len; i++){
+			if(A[i] == A[i-1]){
+				count++;
+			}else{
+				if(count >= (len-1)/2){
+					return A[i-1];
+				}else{
+					count = 1;
+				}
+			}
+		}
+		return count > 0? A[len-1]: 0;
+	}
+	public static int find2(int[] A){
+		int count = 0;
+        int res = 0;
+        for(int i = 0; i < A.length; i++){
+            if(count == 0){
+                res = A[i];
+                count++;
+            }else{
+                if(A[i] == res){
+                    count++;
+                }else{
+                    count--;
+                }
+            }
+        }
+        return count > 0? res: 0;
+		
+	}
+	public static void main(String[] args){
+		int[] A = {3,3,4,2,4,4,2,4,4};
+		int[] B = {3,3,4,2,4,4,2};
+		System.out.print(find(A));
+		System.out.println();
+		System.out.print(find(B));
+		System.out.println();
+		System.out.print(find2(A));
+		System.out.println();
+		System.out.print(find2(B));
+	}
+}
