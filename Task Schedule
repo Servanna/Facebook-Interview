@@ -1,3 +1,11 @@
+
+
+/*1. Task schedule: 给一个task list 
+ * 比如： ABCDAABA， colddown time 是2， 问需要多长时间能完成这些任务. 11
+ *  每个task花费的时间是1， colddown time是指相同的任务必须等待冷却时间才能再一次执行.
+ *  2. 在一的基础上， colddown time变成输入。
+ */
+
 public class TaskSchedule {
 	public static int schedule(String s){
 		if(s.length() == 0){return 0;}
