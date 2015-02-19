@@ -1,0 +1,34 @@
+public class remove_zeros 
+{
+	public static void remove(int[] num)
+	{
+		int first = 0;
+		int i = 0;
+		for(; i < num.length; i++)
+		{
+			if(num[i] == 0)
+			{
+				first = i;
+				break;
+			}
+		}
+		i++;
+		for(; i < num.length; i++)
+		{
+			if(num[i] != 0)
+			{
+				int t = num[i];
+				num[i] = num[first];
+				num[first] = t;
+				first++;
+			}
+		}
+	}
+	public static void main(String[] args){
+		int[] num = {1,0,0,3,0,4,5,0};
+		remove(num);
+		for(int i : num){
+			System.out.print(i + " ");
+		}
+	}
+}
